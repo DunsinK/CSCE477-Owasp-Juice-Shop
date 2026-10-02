@@ -31,6 +31,18 @@ const server = http.createServer((request, response) => {
     return
   }
 
+  if (request.method === 'GET' && request.url === '/shop.html') {
+    response.writeHead(200, { 'Content-Type': 'text/html' })
+    response.end(fs.readFileSync(path.join(__dirname, 'shop.html')))
+    return
+  }
+
+  if (request.method === 'GET' && request.url === '/item.js') {
+    response.writeHead(200, { 'Content-Type': 'text/javascript' })
+    response.end(fs.readFileSync(path.join(__dirname, 'item.js')))
+    return
+  }
+
   if (request.method === 'POST' && request.url === '/login') {
     let body = ''
     request.on('data', (chunk) => { body += chunk })
@@ -41,6 +53,27 @@ const server = http.createServer((request, response) => {
       const message = validationMessage || (validUser ? 'Login successful.' : 'Invalid email or password.')
       response.writeHead(validUser && !validationMessage ? 200 : 400, { 'Content-Type': 'application/json' })
       response.end(JSON.stringify({ message }))
+    })
+    return
+  }
+
+  if (request.method === 'POST' && request.url === '/cart') {
+    let body = ''
+    request.on('data', (chunk) => { body += chunk })
+    request.on('end', () => {
+      const { email, item, quantity } = JSON.parse(body)
+      const validEmail = users.some((user) => user.email === email)
+      const validQuantity = Number.isInteger(quantity) && quantity > 0
+
+      if (!validEmail || !item || !validQuantity) {
+        response.writeHead(400, { 'Content-Type': 'application/json' })
+        response.end(JSON.stringify({ message: 'A valid email, item, and quantity are required.' }))
+        return
+      }
+
+      fs.appendFileSync(path.join(__dirname, 'cart.txt'), `${email}|${item}|${quantity}\n`)
+      response.writeHead(200, { 'Content-Type': 'application/json' })
+      response.end(JSON.stringify({ message: `${item} added to your cart.` }))
     })
     return
   }

@@ -37,5 +37,10 @@ form.addEventListener('submit', async (event) => {
 
 	const result = await response.json()
 	message.textContent = result.message
+
+	if (response.ok) {
+		localStorage.setItem('email', email)
+		window.location.href = '/shop.html'
+	}
 })
 

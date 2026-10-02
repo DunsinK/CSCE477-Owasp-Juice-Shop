@@ -1,5 +1,7 @@
 # Juice Shop for CSCE 477
-A basic HTML + JavaScript login form that mimics Juice Shop's login page. 
+A basic HTML + JavaScript login form and shop page that mimic Juice Shop. Logged-in
+users can add sample items to a cart. Each cart row is stored in `cart.txt` with
+the user's email first.
 
 ## Run it
 
@@ -10,6 +12,7 @@ node server.js
 ```
 
 Open <http://localhost:3000> and try `student@example.com` with `password123`.
+After logging in, select an item to append it to `cart.txt`.
 
 ## Implementation note
 
