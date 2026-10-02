@@ -3,31 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Juice Shop Login</title>
 </head>
 <body>
-    <h1>
-        Dunsin's Juice Shop 
-    </h1>
-    <div>
+    <main>
+        <h1>Juice Shop</h1>
+        <p>Sign in to continue</p>
 
-        <div>
-            Username
-            <input/>
-        </div>
-        
-        <div>
-            Password <input/> 
-        </div>
+        <form id="login-form">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required>
 
-        <button>
-            Sign Up
-        </button>
-        <button>
-            Log in 
-        </button>
-    <div>
-    
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" required>
+
+            <button type="submit">Log in</button>
+            <p id="message" role="alert"></p>
+        </form>
+    </main>
+
     <script src="script.js"></script>
 </body>
 </html>

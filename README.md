@@ -1,7 +1,19 @@
-Create a basic HTML + JavaScript login form that mimics Juice Shop's login page. Your form should include:
+# Juice Shop for CSCE 477
+A basic HTML + JavaScript login form that mimics Juice Shop's login page. 
 
-Email and password input fields
-Client-side validation to prevent empty submissions
-A JavaScript function that checks the email contains "@" and the password is at least 8 characters
-Both client-side and server-side validations
-Provide your HTML/JavaScript code via a public GitHub repo. As good developer practice, your README.md should clearly explain what the project does and how to run it.
+## Run it
+
+Use Node.js 22, 24, or another recent supported version:
+
+```text
+node server.js
+```
+
+Open <http://localhost:3000> and try `student@example.com` with `password123`.
+
+## Implementation note
+
+For this example, a small Node.js server is better than browser-only JavaScript
+because server-side validation cannot be bypassed by editing the page. The text file
+keeps the example easy to understand, but a real application should use a database,
+hashed passwords, HTTPS, sessions, and rate limiting.
