@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juice Shop | Checkout</title>
+</head>
+<body>
+    <main>
+        <p><a href="/shop.html">&larr; Back to products</a></p>
+        <h1>Checkout</h1>
+        <div class="checkout">
+            <section>
+                <h2>Your order</h2>
+                <ul id="order-items"></ul>
+                <strong id="order-total"></strong>
+            </section>
+            <form id="checkout-form">
+                <h2>Delivery details</h2>
+                <label for="name">Full name <input id="name" required></label>
+                <label for="address">Address <input id="address" required></label>
+                <label for="card">Card number <input id="card" inputmode="numeric" minlength="12" required></label>
+                <button type="submit">Place order</button>
+                <p id="checkout-message" role="status"></p>
+            </form>
+        </div>
+    </main>
+    <script src="checkout.js"></script>
+</body>
+</html>

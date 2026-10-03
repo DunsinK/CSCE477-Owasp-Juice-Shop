@@ -1,3 +1,4 @@
+(() => {
 const form = document.querySelector('#login-form')
 const message = document.querySelector('#message')
 
@@ -43,4 +44,5 @@ form.addEventListener('submit', async (event) => {
 		window.location.href = '/shop.html'
 	}
 })
+})()
 

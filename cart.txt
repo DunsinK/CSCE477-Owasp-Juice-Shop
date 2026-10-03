@@ -1,3 +1,6 @@
 student@example.com|Apple Juice|1
 student@example.com|Orange Juice|1
 student@example.com|Apple Juice|1
+student@example.com|Apple Juice|1
+student@example.com|Orange Juice|1
+student@example.com|Apple Juice|1
